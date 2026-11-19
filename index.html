@@ -3,14 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insurance CRM Portal</title>
+
+<title>Singapore Insurance CRM</title>
 
 <style>
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:Segoe UI, Arial, sans-serif;
-    background:#f5f7fa;
+    background:#f4f7fb;
+    color:#333;
 }
 
 .header{
@@ -20,41 +27,84 @@ body{
 }
 
 .header h1{
-    margin:0;
+    margin-bottom:5px;
+}
+
+.header p{
+    color:#dce8f5;
 }
 
 .nav{
-    background:#004a99;
-    padding:10px 30px;
+    background:#00509e;
+    padding:12px 30px;
 }
 
 .nav a{
     color:white;
-    margin-right:25px;
     text-decoration:none;
+    margin-right:25px;
     font-weight:500;
+}
+
+.nav a:hover{
+    text-decoration:underline;
 }
 
 .container{
     padding:25px;
 }
 
-.grid{
+.search-container{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-container input{
+    width:300px;
+    padding:10px;
+}
+
+.search-container button{
+    padding:10px 15px;
+    background:#0078d4;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.screenpop{
+    background:#e8f4ff;
+    border-left:6px solid #0078d4;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:5px;
+}
+
+.dashboard{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
     gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
     padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 .card h2{
-    margin-top:0;
     color:#003366;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-top:15px;
+    margin-bottom:10px;
+    color:#00509e;
 }
 
 table{
@@ -62,11 +112,12 @@ table{
     border-collapse:collapse;
 }
 
-th{
-    background:#e9eef5;
+table th{
+    background:#edf2f7;
 }
 
-td,th{
+table td,
+table th{
     border:1px solid #ddd;
     padding:10px;
     text-align:left;
@@ -77,25 +128,54 @@ td,th{
     font-weight:bold;
 }
 
-.status-progress{
-    color:orange;
+.status-review{
+    color:#ff8c00;
     font-weight:bold;
 }
 
-.search-box{
+.status-approved{
+    color:green;
+    font-weight:bold;
+}
+
+.kpi-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
     margin-bottom:20px;
 }
 
-.search-box input{
-    width:300px;
-    padding:10px;
+.kpi{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.08);
 }
 
-.banner{
-    background:#e8f4ff;
-    border-left:5px solid #0078d4;
+.kpi-value{
+    font-size:28px;
+    color:#0078d4;
+    font-weight:bold;
+}
+
+.badge{
+    background:#ffd700;
+    color:#000;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+ul{
+    padding-left:20px;
+}
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#777;
     padding:15px;
-    margin-bottom:20px;
 }
 
 </style>
@@ -104,11 +184,13 @@ td,th{
 <body>
 
 <div class="header">
-    <h1>Contoso Insurance CRM</h1>
+    <h1>Insurance CRM Portal</h1>
+    <p>Customer Service & Claims Management Workspace</p>
 </div>
 
 <div class="nav">
     <a href="#">Dashboard</a>
+    <a href="#">Customer Profile</a>
     <a href="#">Policies</a>
     <a href="#">Claims</a>
     <a href="#">Interactions</a>
@@ -117,40 +199,133 @@ td,th{
 
 <div class="container">
 
-    <div class="search-box">
-        <input type="text" placeholder="Search Policy Number / Customer Name">
+    <div class="search-container">
+        <input type="text" placeholder="Search by Policy Number, NRIC, or Customer Name">
         <button>Search</button>
     </div>
 
-    <div class="banner">
-        <strong>Incoming Call Screen Pop</strong><br>
-        ANI: +60 12-345 6789<br>
-        Customer Identified: Policyholder Found
+    <div class="screenpop">
+        <strong>📞 NICE CXone Screen Pop</strong><br><br>
+
+        Incoming Number: +65 9123 4567<br>
+        Customer Identified: John Tan Wei Ming<br>
+        Tier: <span class="badge">Premier Customer</span><br>
+        Active Policies: 3<br>
+        Open Claims: 1<br>
+        Last Contact: 10-Nov-2026
     </div>
 
-    <div class="grid">
+    <div class="kpi-container">
+
+        <div class="kpi">
+            <div>Total Coverage</div>
+            <div class="kpi-value">S$750K</div>
+        </div>
+
+        <div class="kpi">
+            <div>Active Policies</div>
+            <div class="kpi-value">3</div>
+        </div>
+
+        <div class="kpi">
+            <div>Open Claims</div>
+            <div class="kpi-value">1</div>
+        </div>
+
+        <div class="kpi">
+            <div>Customer Since</div>
+            <div class="kpi-value">2018</div>
+        </div>
+
+    </div>
+
+    <div class="dashboard">
 
         <div class="card">
+
             <h2>Policyholder Profile</h2>
 
             <p><strong>Name:</strong> John Tan Wei Ming</p>
             <p><strong>Customer ID:</strong> CUS-100245</p>
-            <p><strong>NRIC:</strong> 900101-14-5678</p>
-            <p><strong>Phone:</strong> +60 12-345 6789</p>
+            <p><strong>NRIC:</strong> S8123456A</p>
+            <p><strong>Phone:</strong> +65 9123 4567</p>
             <p><strong>Email:</strong> john.tan@email.com</p>
-            <p><strong>Customer Since:</strong> 2018</p>
-            <p><strong>Relationship Tier:</strong> Gold</p>
+            <p><strong>Preferred Language:</strong> English</p>
+            <p><strong>Customer Segment:</strong> Premier</p>
+
         </div>
 
         <div class="card">
-            <h2>Policy Summary</h2>
 
-            <p><strong>Policy Number:</strong> LF-2026-100001</p>
-            <p><strong>Policy Type:</strong> Life Insurance</p>
-            <p><strong>Coverage Amount:</strong> RM 500,000</p>
-            <p><strong>Annual Premium:</strong> RM 3,250</p>
-            <p><strong>Payment Status:</strong> <span class="status-active">Active</span></p>
+            <h2>Primary Policy</h2>
+
+            <p><strong>Policy Number:</strong> LIFE-2026-10001</p>
+            <p><strong>Product:</strong> Whole Life Insurance</p>
+            <p><strong>Coverage:</strong> S$750,000</p>
+            <p><strong>Annual Premium:</strong> S$4,850</p>
+            <p><strong>Status:</strong>
+                <span class="status-active">Active</span>
+            </p>
             <p><strong>Renewal Date:</strong> 01-Jan-2027</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Policy Portfolio</h2>
+
+            <table>
+
+                <tr>
+                    <th>Policy No.</th>
+                    <th>Product</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>LIFE-2026-10001</td>
+                    <td>Whole Life</td>
+                    <td>Active</td>
+                </tr>
+
+                <tr>
+                    <td>ISP-2026-20035</td>
+                    <td>Integrated Shield Plan</td>
+                    <td>Active</td>
+                </tr>
+
+                <tr>
+                    <td>PA-2026-30045</td>
+                    <td>Personal Accident</td>
+                    <td>Active</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div class="card">
+
+            <h2>AI Agent Assist</h2>
+
+            <h3>Conversation Summary</h3>
+
+            <p>
+                Customer is calling regarding claim
+                CLM-2026-00115.
+                Documents have been received and claim
+                assessment is currently in progress.
+            </p>
+
+            <h3>Recommended Next Action</h3>
+
+            <ul>
+                <li>Verify customer identity.</li>
+                <li>Provide latest claim status.</li>
+                <li>Offer SMS tracking update service.</li>
+                <li>Send interaction summary email.</li>
+            </ul>
+
         </div>
 
     </div>
@@ -158,12 +333,14 @@ td,th{
     <br>
 
     <div class="card">
-        <h2>Active Claims</h2>
+
+        <h2>Claims Management</h2>
 
         <table>
+
             <tr>
-                <th>Claim No.</th>
-                <th>Claim Type</th>
+                <th>Claim Number</th>
+                <th>Type</th>
                 <th>Date Submitted</th>
                 <th>Status</th>
                 <th>Amount</th>
@@ -171,72 +348,88 @@ td,th{
 
             <tr>
                 <td>CLM-2026-00115</td>
-                <td>Medical Claim</td>
+                <td>Hospitalisation</td>
                 <td>12-Nov-2026</td>
-                <td class="status-progress">Under Review</td>
-                <td>RM 4,500</td>
+                <td class="status-review">
+                    Under Assessment
+                </td>
+                <td>S$6,800</td>
             </tr>
 
             <tr>
                 <td>CLM-2026-00078</td>
-                <td>Hospitalisation</td>
+                <td>Outpatient Medical</td>
                 <td>25-Oct-2026</td>
-                <td class="status-active">Approved</td>
-                <td>RM 12,000</td>
+                <td class="status-approved">
+                    Approved
+                </td>
+                <td>S$1,250</td>
             </tr>
+
         </table>
+
     </div>
 
     <br>
 
     <div class="card">
+
         <h2>Recent Customer Interactions</h2>
 
         <table>
+
             <tr>
                 <th>Date</th>
                 <th>Channel</th>
-                <th>Reason</th>
-                <th>Agent</th>
+                <th>Purpose</th>
+                <th>Handled By</th>
             </tr>
 
             <tr>
                 <td>18-Nov-2026</td>
                 <td>Voice</td>
                 <td>Claim Status Enquiry</td>
-                <td>Sarah Lim</td>
+                <td>Agent Sarah Lim</td>
             </tr>
 
             <tr>
                 <td>10-Nov-2026</td>
                 <td>WhatsApp</td>
-                <td>Policy Coverage Question</td>
-                <td>David Tan</td>
+                <td>Coverage Enquiry</td>
+                <td>Agent David Wong</td>
             </tr>
 
             <tr>
                 <td>01-Nov-2026</td>
                 <td>Email</td>
-                <td>Premium Payment Confirmation</td>
-                <td>Amy Wong</td>
+                <td>Premium Payment Query</td>
+                <td>Agent Amanda Lee</td>
             </tr>
+
         </table>
+
     </div>
 
     <br>
 
     <div class="card">
-        <h2>Agent Knowledge Suggestions</h2>
+
+        <h2>Knowledge Recommendations</h2>
 
         <ul>
-            <li>How to check claim approval status</li>
-            <li>Medical reimbursement submission guidelines</li>
-            <li>Policy coverage exclusions</li>
-            <li>Premium payment methods</li>
-            <li>Policy beneficiary update procedure</li>
+            <li>How to submit hospitalisation claims.</li>
+            <li>Integrated Shield Plan coverage guide.</li>
+            <li>Cashless admission process.</li>
+            <li>Critical illness benefit claims procedure.</li>
+            <li>Change nominee and beneficiary details.</li>
         </ul>
+
     </div>
 
+</div>
+
+<div class="footer">
+    Demo CRM for Insurance Contact Centre | Suitable for NICE CXone Demonstrations
 </div>
 
 </body>
