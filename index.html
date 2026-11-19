@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance CRM Portal</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f5f7fa;
+}
+
+.header{
+    background:#003366;
+    color:white;
+    padding:20px 30px;
+}
+
+.header h1{
+    margin:0;
+}
+
+.nav{
+    background:#004a99;
+    padding:10px 30px;
+}
+
+.nav a{
+    color:white;
+    margin-right:25px;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.container{
+    padding:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    padding:20px;
+}
+
+.card h2{
+    margin-top:0;
+    color:#003366;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#e9eef5;
+}
+
+td,th{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:left;
+}
+
+.status-active{
+    color:green;
+    font-weight:bold;
+}
+
+.status-progress{
+    color:orange;
+    font-weight:bold;
+}
+
+.search-box{
+    margin-bottom:20px;
+}
+
+.search-box input{
+    width:300px;
+    padding:10px;
+}
+
+.banner{
+    background:#e8f4ff;
+    border-left:5px solid #0078d4;
+    padding:15px;
+    margin-bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Contoso Insurance CRM</h1>
+</div>
+
+<div class="nav">
+    <a href="#">Dashboard</a>
+    <a href="#">Policies</a>
+    <a href="#">Claims</a>
+    <a href="#">Interactions</a>
+    <a href="#">Knowledge Base</a>
+</div>
+
+<div class="container">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search Policy Number / Customer Name">
+        <button>Search</button>
+    </div>
+
+    <div class="banner">
+        <strong>Incoming Call Screen Pop</strong><br>
+        ANI: +60 12-345 6789<br>
+        Customer Identified: Policyholder Found
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>Policyholder Profile</h2>
+
+            <p><strong>Name:</strong> John Tan Wei Ming</p>
+            <p><strong>Customer ID:</strong> CUS-100245</p>
+            <p><strong>NRIC:</strong> 900101-14-5678</p>
+            <p><strong>Phone:</strong> +60 12-345 6789</p>
+            <p><strong>Email:</strong> john.tan@email.com</p>
+            <p><strong>Customer Since:</strong> 2018</p>
+            <p><strong>Relationship Tier:</strong> Gold</p>
+        </div>
+
+        <div class="card">
+            <h2>Policy Summary</h2>
+
+            <p><strong>Policy Number:</strong> LF-2026-100001</p>
+            <p><strong>Policy Type:</strong> Life Insurance</p>
+            <p><strong>Coverage Amount:</strong> RM 500,000</p>
+            <p><strong>Annual Premium:</strong> RM 3,250</p>
+            <p><strong>Payment Status:</strong> <span class="status-active">Active</span></p>
+            <p><strong>Renewal Date:</strong> 01-Jan-2027</p>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="card">
+        <h2>Active Claims</h2>
+
+        <table>
+            <tr>
+                <th>Claim No.</th>
+                <th>Claim Type</th>
+                <th>Date Submitted</th>
+                <th>Status</th>
+                <th>Amount</th>
+            </tr>
+
+            <tr>
+                <td>CLM-2026-00115</td>
+                <td>Medical Claim</td>
+                <td>12-Nov-2026</td>
+                <td class="status-progress">Under Review</td>
+                <td>RM 4,500</td>
+            </tr>
+
+            <tr>
+                <td>CLM-2026-00078</td>
+                <td>Hospitalisation</td>
+                <td>25-Oct-2026</td>
+                <td class="status-active">Approved</td>
+                <td>RM 12,000</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <h2>Recent Customer Interactions</h2>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Channel</th>
+                <th>Reason</th>
+                <th>Agent</th>
+            </tr>
+
+            <tr>
+                <td>18-Nov-2026</td>
+                <td>Voice</td>
+                <td>Claim Status Enquiry</td>
+                <td>Sarah Lim</td>
+            </tr>
+
+            <tr>
+                <td>10-Nov-2026</td>
+                <td>WhatsApp</td>
+                <td>Policy Coverage Question</td>
+                <td>David Tan</td>
+            </tr>
+
+            <tr>
+                <td>01-Nov-2026</td>
+                <td>Email</td>
+                <td>Premium Payment Confirmation</td>
+                <td>Amy Wong</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <h2>Agent Knowledge Suggestions</h2>
+
+        <ul>
+            <li>How to check claim approval status</li>
+            <li>Medical reimbursement submission guidelines</li>
+            <li>Policy coverage exclusions</li>
+            <li>Premium payment methods</li>
+            <li>Policy beneficiary update procedure</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
